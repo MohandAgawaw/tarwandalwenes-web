@@ -1,0 +1,358 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarwa N Dda Lwennas</title>
+<link rel="icon" href="src/ico.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #C75000;
+    --secondary-color: #FFB347;
+    --accent-color: #FFF1E6;
+    --text-color: #333333;
+    --background-color: #F9F5F1;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../berber-pattern.svg') repeat;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin: 0.5rem;
+  }
+  
+  nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+  }
+  
+  .festival-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2rem;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+    
+    .section {
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    .gallery {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .section {
+      padding: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Création D'Application Mobile.</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+  <li><a href="#about">À Propos</a></li>
+  <li><a href="#gallery">Galerie</a></li>
+</ul>
+  </nav>
+  
+  <main>
+    <section id="about" class="section">
+      <h2>À Propos Création D'Application Mobile.</h2>
+      <img src="src/mobile-phone-g69a825e8f_1280.png" alt="Application" class="festival-image" width="600" height="400">
+      <p><strong>La Kabylie est l’un des berceaux de l’humanité, son espace géographique est un musée à ciel ouvert, témoignant de la vie de nos ancêtres.</strong></p>
+      <p>De la préhistoire à l’histoire, nous avons la preuve de notre évolution à travers les âges et cela grâce aux différentes inscriptions et écrits que nous ont légués nos aïeux.
+
+        Du Djurdjura aux Monts Babors, Tarwa n dda Lwennas a recensé pas moins de 55 grottes préhistoriques, ou sont inscrits : Les noms des premiers hommes, leur mode de vie, le type des animaux chassés et bien d’autres détails.
+        
+        Nos ancêtres ont pratiqué, la chasse, la pèche et la cueillette pour se nourrir. Puis, ils se sont sédentarisés, ont pratiqué l’agriculture, l’élevage, ont construit leurs maisons et ont su s’adapter à leur milieu naturel.
+        
+        L’invention de l’écriture marque le passage de la préhistoire à l’Histoire et nous, Kabyles, avons fait partie de cette révolution humaine.
+        
+        Nous avons écrit sur, la poterie, La tapisserie, les bijoux …Etc. Nos maisons sont de vraies bibliothèques ou la connaissance est quasi présente.
+        
+        Après 9 mois de travail acharné, nous sommes arrivés en cette date de 16/04/2022 de publier notre application mobile « Tamusni n Teqvaylit ».
+        
+        Girl in a jacket
+        Une vraie encyclopédie, qui résume le parcours de nos ancêtres depuis l’existence, et témoigne de leur ancrage civilisationnel.
+        
+        Cette application fait suite au programme que nous, Tarwa n dda Lwennas, avons tracé afin de partager les connaissances de nos anciens, aider nos jeunes à travailler ensemble sur des projets s’inscrivant dans l’économie de la connaissance et ainsi assurer un développement sur et durable.</p>
+      </section>
+    
+    <section id="gallery" class="section">
+      <h2>Galerie Photo</h2>
+      <div class="gallery">
+        <img src="../../images/tafsut-1.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-2.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-3.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-4.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-5.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-6.jpg"  width="250" height="200">
+      </div>
+    </section>
+    
+    <section id="video" class="section">
+      <h2>Vidéo de L'événement</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EXAMPLE_VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>© 2023 Tarwa N Dda Lwennas. Tous droits réservés.</p>
+    <p>Célébrons ensemble le printemps de la culture berbère</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('nav a');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              const navHeight = document.querySelector('nav').offsetHeight;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+
+      // Animation pour les images de la galerie
+      const galleryImages = document.querySelectorAll('.gallery img');
+      galleryImages.forEach(img => {
+        img.addEventListener('mouseover', () => {
+          img.style.transform = 'scale(1.05)';
+          img.style.transition = 'transform 0.3s ease';
+        });
+        img.addEventListener('mouseout', () => {
+          img.style.transform = 'scale(1)';
+        });
+      });
+
+      // Gestion du menu responsive
+      const navToggle = document.createElement('button');
+      navToggle.textContent = '☰';
+      navToggle.classList.add('nav-toggle');
+      document.querySelector('nav').prepend(navToggle);
+
+      navToggle.addEventListener('click', () => {
+        document.querySelector('nav ul').classList.toggle('show');
+      });
+
+      // Ajout de styles pour le menu responsive
+      const style = document.createElement('style');
+      style.textContent = `
+        .nav-toggle {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          color: var(--primary-color);
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+          .nav-toggle {
+            display: block;
+          }
+
+          nav ul {
+            display: none;
+          }
+
+          nav ul.show {
+            display: flex;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+
+</body></html>

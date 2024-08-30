@@ -1,0 +1,348 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarwa N Dda Lwennas</title>
+<link rel="icon" href="src/ico.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #C75000;
+    --secondary-color: #FFB347;
+    --accent-color: #FFF1E6;
+    --text-color: #333333;
+    --background-color: #F9F5F1;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../berber-pattern.svg') repeat;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin: 0.5rem;
+  }
+  
+  nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+  }
+  
+  .festival-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2rem;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+    
+    .section {
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    .gallery {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .section {
+      padding: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Dessin d’un cavalier Kabyle.</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+  <li><a href="#about">À Propos</a></li>
+  <li><a href="#gallery">Galerie</a></li>
+</ul>
+  </nav>
+  
+  <main>
+    <section id="about" class="section">
+      <h2>À Propos du Dessin d’un cavalier Kabyle.</h2>
+      <img src="src/DESSIN.png" alt="Dessin" class="festival-image" width="600" height="400">
+      <p><strong>Plusieurs stèles représentants des cavaliers ont été découvertes en Kabylie, elles représentent pour la plupart des soldats sur leurs chevaux arborant un salut militaire d’une main et portant un bouclier et des lances dans l’autre main.</strong></p>
+      <p>Nos cavaliers ont défendu nos terres avec bravoure, Tarwa n dda Lwennas, en cette date de 23/06/2021 a réussi à redonner une seconde vie à l’un de nos cavalier Kabyle.
+
+        Girl in a jacket
+        Grace au talent et aux recherches de nos jeunes, nous sommes parvenues à dessiner dans les moindres détails le Cavalier de Semaoun (Chemini).
+        
+        Conscients de la richesse de notre histoire et de sa profondeur idéologique, ce travail s’ajoute à d’autres activités que nous réalisons sur le terrain de l’économie de la connaissance.
+        
+        Tarwa n dda Lwennas est la digne héritière de ces valeureux cavaliers, qui par leurs sacrifices, notre Kabylie a su résister aux agressions des différents conquérants venant de l’est ou de l’ouest.</p>
+    <section id="gallery" class="section">
+      <h2>Galerie Photo</h2>
+      <div class="gallery">
+        <img src="../../images/tafsut-1.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-2.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-3.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-4.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-5.jpg"  width="250" height="200">
+        <img src="../../images/tafsut-6.jpg"  width="250" height="200">
+      </div>
+    </section>
+    
+    <section id="video" class="section">
+      <h2>Vidéo de L'événement</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3aY8wFYgrcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>© 2023 Tarwa N Dda Lwennas. Tous droits réservés.</p>
+    <p>Célébrons ensemble le printemps de la culture berbère</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('nav a');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              const navHeight = document.querySelector('nav').offsetHeight;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+
+      // Animation pour les images de la galerie
+      const galleryImages = document.querySelectorAll('.gallery img');
+      galleryImages.forEach(img => {
+        img.addEventListener('mouseover', () => {
+          img.style.transform = 'scale(1.05)';
+          img.style.transition = 'transform 0.3s ease';
+        });
+        img.addEventListener('mouseout', () => {
+          img.style.transform = 'scale(1)';
+        });
+      });
+
+      // Gestion du menu responsive
+      const navToggle = document.createElement('button');
+      navToggle.textContent = '☰';
+      navToggle.classList.add('nav-toggle');
+      document.querySelector('nav').prepend(navToggle);
+
+      navToggle.addEventListener('click', () => {
+        document.querySelector('nav ul').classList.toggle('show');
+      });
+
+      // Ajout de styles pour le menu responsive
+      const style = document.createElement('style');
+      style.textContent = `
+        .nav-toggle {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          color: var(--primary-color);
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+          .nav-toggle {
+            display: block;
+          }
+
+          nav ul {
+            display: none;
+          }
+
+          nav ul.show {
+            display: flex;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+
+</body></html>

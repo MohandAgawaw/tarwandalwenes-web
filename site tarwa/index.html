@@ -1,0 +1,456 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarwa N Dda Lwennas - Association Culturelle Kabyle</title>
+<link rel="icon" href="src/ico.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #C75000;
+    --secondary-color: #FFB347;
+    --accent-color: #FFF1E6;
+    --text-color: #333333;
+    --background-color: #F9F5F1;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('berber-pattern.svg') repeat;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  header h1, header p {
+    position: relative;
+    z-index: 1;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin: 0.5rem;
+  }
+  
+  nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .section:hover {
+    transform: translateY(-5px);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+  }
+  
+  .members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .member-card {
+    background-color: var(--accent-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .member-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+  
+  .member-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .activities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .activity-card {
+    background-color: var(--accent-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+  
+  .activity-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .activity-card h3 {
+    color: var(--primary-color);
+    margin-top: auto;
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2rem;
+    }
+    
+    .logo {
+      width: 100px;
+      height: 100px;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+    
+    .section {
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    .members {
+      gap: 1.5rem;
+    }
+    
+    .member-card {
+      width: 100%;
+      max-width: 280px;
+    }
+    
+    .activities {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .section {
+      padding: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    .member-card img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="src/ico.png" alt="Logo Tarwa N Dda Lwennas" class="logo">
+    <h1>Tarwa N Dda Lwennas</h1>
+    <p>Association Culturelle Kabyle</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#about">À Propos</a></li>
+      <li><a href="#members">Membres</a></li>
+      <li><a href="#activities">Nos Activités</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <section id="about" class="section">
+      <h2>À Propos de Tarwa N Dda Lwennas</h2>
+      <p>Tarwa N Dda Lwennas est une association culturelle passionnée, dédiée à la préservation et à la promotion de la riche culture Kabyel. Notre nom, qui signifie "Les Enfants de Da Lwennas" en kabyle, rend un vibrant hommage au légendaire chanteur et poète Kabyle Lounès Matoub. Nous œuvrons avec cœur et détermination pour maintenir vivantes les traditions ancestrales, la langue millénaire et les arts Kabyle, tout en les partageant avec le monde entier.</p>
+    </section>
+    
+    <section id="members" class="section">
+      <h2>Nos Membres</h2>
+      <div class="members">
+        <div class="member-card">
+          <img src="" alt="Portrait de Avel Aqvayli, président de l'association" width="180" height="180">
+          <h3>Avel Aqvayli</h3>
+          <p>Président</p>
+        </div>
+        <div class="member-card">
+          <img src="src/mhd.png" alt="Portrait de Mohand Agawaw, Informaticien de l'association" width="180" height="180">
+          <h3>Mohand Agawaw</h3>
+          <p>Informaticien</p>
+        </div>
+      
+      </div>
+    </section>
+    
+    <section id="activities" class="section">
+      <h2>Nos Activités</h2>
+      <div class="activities">
+        <a href="Distribution.html" class="activity-card">
+          <img src="src/pic1.jpg" alt="Distribution De Livres." width="250" height="200">
+          <h3>Distribution De Livres.</h3>
+          <p>la journée internationale de la langue maternelle (21 février) </p>
+        </a>
+        <a href="environnement.html" class="activity-card">
+          <img src="src/nettoi.jpg" alt="Protection de l'environnement." width="250" height="200">
+          <h3>Protection de l'environnement.</h3>
+          <p>déplacement à Azzefun afin de procéder à son nettoyage.</p>
+        </a>
+        <a href="Art.html" class="activity-card">
+          <img src="src/DESSIN.png" alt="Expositions d'Art" width="250" height="200">
+          <h3>Expositions d'Art</h3>
+          <p>Dessin d’un cavalier Kabyle.</p>
+        </a>
+        <a href="Application.html" class="activity-card">
+          <img src="src/mobile-phone-g69a825e8f_1280.png" alt="Création D'Application Mobile." width="250" height="200">
+          <h3>Action Numérique.</h3>
+          <p>Création D'Application Mobile.</p>
+        </a>
+        <a href="maison-3D.html" class="activity-card">
+          <img src="src/MAISON3D.jpg" alt="Création d'une animation 3D d'une maison Kabyle." width="250" height="200">
+          <h3>Action Numérique.</h3>
+          <p>Création d'une animation 3D d'une maison Kabyle.</p>
+        </a>
+      </div>
+    </section>
+    
+    <section id="contact" class="section">
+      <h2>Contactez-nous</h2>
+      <p>Nous sommes impatients de vous entendre ! Pour plus d'informations ou pour participer à nos activités enrichissantes, n'hésitez pas à nous contacter :</p>
+      <ul>
+        <li>📧 Email : <a href="mailto:info@tarwa-n-dda-lwennas.org">info@tarwa-n-dda-lwennas.org</a></li>
+        <li>📞 Téléphone : +213 1... ...</li>
+        <li>🏠 Adresse : Michelet, Tizi Ouzou, Kabylie</li>
+      </ul>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Tarwa N Dda Lwennas. Tous droits réservés.</p>
+    <p>Fiers de promouvoir et préserver la culture Kabyle</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('nav a');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Ajout d'une animation simple pour les cartes d'activité
+      const activityCards = document.querySelectorAll('.activity-card');
+      activityCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'scale(1.05) translateY(-10px)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'scale(1) translateY(0)';
+        });
+      });
+
+      // Animation du logo
+      const logo = document.querySelector('.logo');
+      logo.addEventListener('mouseover', () => {
+        logo.style.transform = 'rotate(360deg)';
+        logo.style.transition = 'transform 1s ease-in-out';
+      });
+      logo.addEventListener('mouseout', () => {
+        logo.style.transform = 'rotate(0deg)';
+      });
+
+      // Gestion du menu responsive
+      const navToggle = document.createElement('button');
+      navToggle.textContent = '☰';
+      navToggle.classList.add('nav-toggle');
+      document.querySelector('nav').prepend(navToggle);
+
+      navToggle.addEventListener('click', () => {
+        document.querySelector('nav ul').classList.toggle('show');
+      });
+
+      // Ajout de styles pour le menu responsive
+      const style = document.createElement('style');
+      style.textContent = `
+        .nav-toggle {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          color: var(--primary-color);
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+          .nav-toggle {
+            display: block;
+          }
+
+          nav ul {
+            display: none;
+          }
+
+          nav ul.show {
+            display: flex;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+</body>
+</html>
